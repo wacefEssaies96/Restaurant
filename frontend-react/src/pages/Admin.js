@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { deletePlat, fetchData } from '../services/platService';
 import { Link } from "react-router-dom";
+import { confirmDelete } from '../services/alerts';
 
 export default function Admin() {
 
@@ -15,8 +16,7 @@ export default function Admin() {
   }, [])
 
   const submitDelete = async (id) => {
-    await deletePlat(id)
-    getList()
+    confirmDelete(id, getList)
   }
 
   return (

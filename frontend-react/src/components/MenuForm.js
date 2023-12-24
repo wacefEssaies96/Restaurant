@@ -79,7 +79,7 @@ export default function MenuForm({ operationMode }) {
                                 </Form.Group>
                                 <Form.Group className="mb-3">
                                     <Form.Label htmlFor="prix">Prix</Form.Label>
-                                    <Form.Control value={newMenu.prix} name="prix" type="number" className="form-control" id="prix" placeholder="prix" required />
+                                    <Form.Control defaultValue={newMenu.prix} name="prix" type="number" className="form-control" id="prix" placeholder="prix" required />
                                     <Form.Control.Feedback type="valid">
                                     </Form.Control.Feedback>
                                     <Form.Control.Feedback type='invalid'>
