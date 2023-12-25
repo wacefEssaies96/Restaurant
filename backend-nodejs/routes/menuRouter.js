@@ -28,6 +28,8 @@ router.post("/add", upload.single('image'), menuController.create);
 
 // Retrieve all
 router.get("/find-all", menuController.findAll);
+router.get("/get-all", menuController.getAll);
+
 
 // Retrieve a single with id
 router.get("/find/:id", menuController.findMenuById);

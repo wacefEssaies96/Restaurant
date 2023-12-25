@@ -22,7 +22,28 @@ exports.create = async (req, res) => {
         });
 };
 
-exports.findAll = (req, res) => {
+exports.findAll = async (req, res) => {
+    const { query, page, limit = 2 } = req.query
+    const options = {
+        page,
+        limit,
+        collation: {
+            locale: 'en'
+        }
+    }
+    const regexQuery = new RegExp(query, 'i')
+    try {
+        const menus = await Menu.paginate(
+            { libelle: regexQuery },
+            options
+        )
+        res.json(menus)
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+}
+
+exports.getAll = (req, res) => {
     Menu.find()
         .then(menus => res.json(menus))
         .catch(err => res.status(400).json('Error: ' + err));

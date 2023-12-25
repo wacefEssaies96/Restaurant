@@ -5,9 +5,7 @@ import { Form } from "react-bootstrap"
 export default function Home() {
     const [platsList, setPlatsList] = useState([])
     const getList = async () => {
-
-        setPlatsList(await fetchData("http://localhost:3030/menu/find-all"))
-        console.log(await fetchData("http://localhost:3030/menu/find-all"))
+        setPlatsList(await fetchData("http://localhost:3030/menu/get-all"))
     }
     useEffect(() => {
         getList()
@@ -55,9 +53,8 @@ export default function Home() {
                         </div>
                         <div className="row gx-2">
                             {platsList.length > 0 && platsList.map((p, i) =>
-                                <div className="col-sm-6 col-md-4 col-xl mb-5 h-100">
-
-                                    <div className="card card-span h-100 rounded-3" key={i}>
+                                <div className="col-sm-6 col-md-4 col-xl mb-5 h-100" key={i}>
+                                    <div className="card card-span h-100 rounded-3">
                                         <img
                                             className="img-fluid rounded-3"
                                             src={`http://localhost:3030/${p.image}`}
@@ -133,7 +130,7 @@ export default function Home() {
                                             <div className="col">
                                                 <img
                                                     className="img-fluid fit-cover rounded-top rounded-md-end rounded-md-top-0"
-                                                    src="https://web.chilisindia.com/images/logo.png?v=33.0.209"
+                                                    src="https://seeklogo.com/images/C/chilis-colombia-logo-9113A14E23-seeklogo.com.png"
                                                     alt="..."
                                                     style={{ width: "500px" }}
                                                 />
